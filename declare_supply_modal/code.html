@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MealBridge - Declare Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#60233e",
+                        "surface-tint": "#3b6934",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "tertiary-container": "#7c3a55",
+                        "primary-fixed": "#bcf0ae",
+                        "secondary": "#855300",
+                        "outline-variant": "#c2c9bb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#3b0520",
+                        "primary": "#154212",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-background": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline": "#72796e",
+                        "primary-fixed-dim": "#a1d494",
+                        "tertiary-fixed": "#ffd9e4",
+                        "on-surface-variant": "#42493e",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002201",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#23501e",
+                        "tertiary-fixed-dim": "#ffb0cc",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-primary": "#a1d494",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2d5a27",
+                        "on-tertiary-container": "#ffaac8",
+                        "on-primary-container": "#9dd090",
+                        "secondary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-secondary-fixed": "#2a1700",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-container": "#684000",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed-variant": "#71314c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen relative font-body overflow-hidden">
+<!-- Blurred Background Context (Simulated Dashboard) -->
+<div class="absolute inset-0 z-0 select-none pointer-events-none opacity-40 blur-sm flex">
+<!-- Simulated Sidebar -->
+<div class="w-64 h-full bg-surface-container-low border-r-0 border-transparent p-6 flex flex-col gap-4">
+<div class="h-8 w-32 bg-surface-variant rounded mb-8"></div>
+<div class="h-10 w-full bg-surface rounded-lg"></div>
+<div class="h-10 w-full bg-surface-container rounded-lg"></div>
+<div class="h-10 w-full bg-surface-container rounded-lg"></div>
+</div>
+<!-- Simulated Main Content -->
+<div class="flex-1 p-8 bg-surface">
+<div class="h-12 w-48 bg-surface-variant rounded mb-8"></div>
+<div class="grid grid-cols-3 gap-6 mb-8">
+<div class="h-32 bg-surface-container-lowest rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest rounded-xl"></div>
+<div class="h-32 bg-surface-container-lowest rounded-xl"></div>
+</div>
+<div class="h-64 bg-surface-container-low rounded-xl"></div>
+</div>
+</div>
+<!-- Overlay Backdrop -->
+<div aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-[2px] z-40 flex items-center justify-center p-4 sm:p-6" role="dialog">
+<!-- Modal Container -->
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-[0_12px_32px_rgba(25,28,29,0.08)] flex flex-col overflow-hidden relative z-50 transform transition-all">
+<!-- Modal Header -->
+<div class="px-6 py-5 border-b-0 flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+</div>
+<h2 class="text-xl font-headline font-semibold text-on-surface tracking-tight" id="modal-title">List Surplus Food</h2>
+</div>
+<button aria-label="Close modal" class="text-on-surface-variant hover:text-on-surface transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Modal Body (Form) -->
+<div class="px-6 py-6 overflow-y-auto max-h-[716px] bg-surface flex flex-col gap-6">
+<!-- Description Section -->
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-label font-medium text-on-surface-variant uppercase tracking-[0.05em] mb-2" for="meal-desc">Meal Type &amp; Description</label>
+<textarea class="w-full bg-surface-container-lowest border-0 ring-1 ring-outline-variant/20 rounded-lg p-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:outline-none transition-shadow resize-none text-body shadow-sm" id="meal-desc" placeholder="e.g., 2 trays of roasted vegetable lasagna, prepared today..." rows="3"></textarea>
+</div>
+<!-- Quantity & Time Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Portions -->
+<div>
+<label class="block text-sm font-label font-medium text-on-surface-variant uppercase tracking-[0.05em] mb-2" for="portions">Portions</label>
+<div class="flex items-center bg-surface-container-lowest ring-1 ring-outline-variant/20 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-primary transition-shadow shadow-sm">
+<button class="px-3 py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<input class="w-full text-center border-0 bg-transparent p-2 text-on-surface font-semibold focus:ring-0" id="portions" min="1" type="number" value="10"/>
+<button class="px-3 py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Time -->
+<div>
+<label class="block text-sm font-label font-medium text-on-surface-variant uppercase tracking-[0.05em] mb-2" for="time">Available Until</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-0 ring-1 ring-outline-variant/20 rounded-lg p-2.5 pl-10 text-on-surface focus:ring-2 focus:ring-primary focus:outline-none transition-shadow shadow-sm" id="time" type="time" value="18:00"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="schedule">schedule</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Handover Method Section -->
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/10">
+<label class="block text-sm font-label font-medium text-on-surface-variant uppercase tracking-[0.05em] mb-3">Handover Method</label>
+<div class="flex flex-col gap-3">
+<label class="flex items-center p-3 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-variant/50 transition-colors border border-outline-variant/20">
+<input checked="" class="text-primary focus:ring-primary border-outline-variant w-5 h-5" name="handover" type="radio" value="pickup"/>
+<div class="ml-3 flex flex-col">
+<span class="text-on-surface font-medium">NGO must pick up</span>
+<span class="text-sm text-on-surface-variant">We'll hold it at our location</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant" data-icon="storefront">storefront</span>
+</label>
+<label class="flex items-center p-3 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-variant/50 transition-colors border border-outline-variant/20">
+<input class="text-primary focus:ring-primary border-outline-variant w-5 h-5" name="handover" type="radio" value="deliver"/>
+<div class="ml-3 flex flex-col">
+<span class="text-on-surface font-medium">We can deliver</span>
+<span class="text-sm text-on-surface-variant">We'll drop it off to a nearby NGO</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-surface-container-lowest border-t border-outline-variant/10 flex items-center justify-end gap-3 rounded-b-xl">
+<button class="px-5 py-2.5 text-primary font-medium text-sm hover:bg-surface-container-low rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50" type="button">
+                    Cancel
+                </button>
+<button class="px-6 py-2.5 bg-gradient-to-r from-secondary to-secondary-container text-on-secondary font-medium text-sm rounded-lg hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-secondary/50 shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="publish">publish</span>
+                    Publish Supply
+                </button>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NGO Dashboard - MealBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#60233e",
+                        "surface-tint": "#3b6934",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "tertiary-container": "#7c3a55",
+                        "primary-fixed": "#bcf0ae",
+                        "secondary": "#855300",
+                        "outline-variant": "#c2c9bb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#3b0520",
+                        "primary": "#154212",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-background": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline": "#72796e",
+                        "primary-fixed-dim": "#a1d494",
+                        "tertiary-fixed": "#ffd9e4",
+                        "on-surface-variant": "#42493e",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002201",
+                        "secondary-container": "#fea619",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#23501e",
+                        "tertiary-fixed-dim": "#ffb0cc",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-primary": "#a1d494",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2d5a27",
+                        "on-tertiary-container": "#ffaac8",
+                        "on-primary-container": "#9dd090",
+                        "secondary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-secondary-fixed": "#2a1700",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-container": "#684000",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed-variant": "#71314c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Typography Scale Overrides based on Design System */
+        .text-display-lg { font-size: 3.5rem; line-height: 4rem; letter-spacing: -0.02em; }
+        .text-headline-lg { font-size: 2rem; line-height: 2.5rem; font-weight: 700; }
+        .text-title-md { font-size: 1.125rem; line-height: 1.5rem; font-weight: 600; }
+        .text-label-md { font-size: 0.75rem; line-height: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        /* Bespoke Components */
+        .impact-meter {
+            background: linear-gradient(to right, theme('colors.secondary'), theme('colors.secondary-container'));
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container'));
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.lg');
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        .glass-panel {
+            background-color: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        
+        /* Remove strict borders, use shadows/backgrounds */
+        .no-strict-border {
+            border: none;
+            box-shadow: 0 4px 24px rgba(25, 28, 29, 0.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-surface flex overflow-hidden">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex bg-zinc-50 dark:bg-zinc-950 text-emerald-800 dark:text-emerald-400 text-sm font-medium Inter h-screen w-64 fixed left-0 top-0 border-r-0 tonal-shift bg-zinc-100 dark:bg-zinc-900 flat no-shadows flex-col py-6 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+                    O
+                </div>
+<div>
+<h1 class="text-lg font-black text-emerald-900 dark:text-emerald-500 tracking-tighter">MealBridge</h1>
+<p class="text-xs text-secondary font-medium">Verified Donor</p>
+</div>
+</div>
+</div>
+<div class="flex-1 px-4 space-y-2 overflow-y-auto">
+<!-- Active Tab: Home (Dashboard intent) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-zinc-900 text-emerald-900 dark:text-emerald-400 shadow-sm rounded-lg mx-2 scale-active-98 transition-transform group" href="#">
+<span class="material-symbols-outlined icon-fill">dashboard</span>
+<span>Home</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 mx-2 rounded-lg transition-all hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 mx-2 rounded-lg transition-all hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span>Requests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 mx-2 rounded-lg transition-all hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Impact Reports</span>
+</a>
+</div>
+<div class="px-4 mt-6">
+<button class="w-full btn-primary text-center">Declare Surplus</button>
+</div>
+<div class="mt-8 px-4 space-y-2 border-t border-outline-variant/15 pt-4">
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 mx-2 rounded-lg transition-all hover:translate-x-1 duration-200 text-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 mx-2 rounded-lg transition-all hover:translate-x-1 duration-200 text-sm" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 relative min-h-screen flex flex-col">
+<!-- TopNavBar (Mobile mainly, but provides header structure here) -->
+<header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md text-emerald-900 dark:text-emerald-500 font-inter antialiased tracking-tight sticky top-0 w-full z-30 bg-zinc-100/50 dark:bg-zinc-800/50 shadow-sm dark:shadow-none">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="md:hidden text-xl font-bold tracking-tighter text-emerald-900 dark:text-emerald-100">MealBridge</span>
+<!-- Verification Badge -->
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[1rem] icon-fill">verified</span>
+<span class="text-xs font-semibold">Verification Status: Active</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-500 hover:text-emerald-800 transition-colors hover:bg-emerald-50/50 p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-zinc-500 hover:text-emerald-800 transition-colors hover:bg-emerald-50/50 p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border-2 border-surface-container-lowest shadow-sm">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="professional headshot of an older man in a blue shirt smiling softly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTUdMwtCbN-UkqaKeC9j46vUX7AxNANFp1ymLpd-2s_MfBPljxpBq0LeU8H_r70OtPu8oKmASrDsIxiE3J_w-DV4hwVV1zEkSuiLkKNXAM__3Hd3XYEdgpJpIiyfvsfgK4BiEutqmxZm5NFHwGX5dUmPZKdnhKohaDOmWcw3-OLTV43Xzupfa4EeOWUMxR3lu-FloiM8qxO_pCuXQgem6LzHq2sVk-6e_FTbRm-OaXTdWc7DB9-H15_1e3FMP9hvruS7b6b8OyGYrB"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="flex-1 p-6 md:p-8 lg:p-10 max-w-7xl mx-auto w-full space-y-8 overflow-y-auto pb-24">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="text-headline-lg text-on-surface tracking-tight mb-1">NGO Dashboard</h2>
+<p class="text-on-surface-variant">Manage your inbound supply and coordinate pickups.</p>
+</div>
+<button class="btn-primary flex items-center gap-2 self-start sm:self-auto shadow-md">
+<span class="material-symbols-outlined">add</span>
+                    Create New Request
+                </button>
+</div>
+<!-- Tabbed Navigation -->
+<div class="flex gap-6 border-b border-outline-variant/20 mb-6">
+<button class="pb-3 text-primary font-semibold border-b-2 border-primary">Smart Matches</button>
+<button class="pb-3 text-on-surface-variant hover:text-on-surface transition-colors">My Requests</button>
+<button class="pb-3 text-on-surface-variant hover:text-on-surface transition-colors">Pending Pickups</button>
+</div>
+<!-- Bento Grid Main Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Main Feed (Smart Matches) -->
+<div class="lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-title-md text-on-surface">Available Near You</h3>
+<span class="text-label-md text-secondary bg-secondary-container/20 px-2 py-1 rounded">Urgent</span>
+</div>
+<!-- Supply Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden group no-strict-border">
+<!-- Decorative gradient line for urgency -->
+<div class="absolute top-0 left-0 w-1 h-full impact-meter"></div>
+<div class="w-full sm:w-32 h-32 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img alt="Continental Breakfast" class="w-full h-full object-cover" data-alt="a spread of fresh pastries, fruit, and coffee on a white hotel buffet table soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHvYYiGhO8e6oQn2drF7G_uNa_UNdQ_Gy39Agudm_3elG-4hiIPhipaJ1eYwVPHT2WJFT8vimkHhQXY5EeC_nNfe5DgWLiSabQP4rq2Q-knsX2h7YHgTyBwOkOm8TpFTQXIcM6WyCw6-IT1eCHXSdOa8cjOfXpOMnTyNuVtupTcxlBhvnrc3xsP8a0MmpGIRZFkhunp14Kyg6MUSYGb_RQZMJG-MX4i2Z57eHC7zFC1F3vnvwMTuo7Bh9ek-A6zEKYoUWp_kgs1dEb"/>
+</div>
+<div class="flex-1 flex flex-col h-full justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[1rem]">location_on</span>
+                                        1.2 miles away
+                                    </span>
+<span class="text-xs font-semibold text-secondary flex items-center gap-1 bg-secondary-container/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[1rem]">timer</span>
+                                        Expiry 2h
+                                    </span>
+</div>
+<h4 class="text-lg font-bold text-on-surface leading-tight mb-1">Hotel Grand - Continental Breakfast</h4>
+<p class="text-on-surface-variant text-sm">Includes assorted pastries, fresh fruit bowls, and yogurt parfaits. Properly stored in refrigerated units.</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint">inventory</span>
+<span class="font-semibold text-on-surface">30 portions</span>
+</div>
+<button class="bg-surface-container-high text-primary hover:bg-primary-container/20 px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                                    Claim Supply
+                                </button>
+</div>
+</div>
+</div>
+<!-- Supply Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden no-strict-border">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container/50"></div>
+<div class="w-full sm:w-32 h-32 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img alt="Produce" class="w-full h-full object-cover" data-alt="close up of mixed fresh vegetables in a wooden crate with warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc2Ra5i7gz7NEPrq7pb-OIDalzk3zmqsFG8Q8hI6lDokJtvxw-NtsfDJHiwT7XOIfZQdmbhQwdeAmODCt-NN9a_IhXss-hMzf1CfI6qqHwgZ7MqQh2DaDKugcf-A8kJZJ6vItHxVtmd3ltgZUHHADjuAjaCqwF6PHmw5Kj7KvTkjAf6JXZ4EVeAio_v1CdkclYVK717HIfToF7M6flV59gle1Wn4TiipLurw8IE-mhWH45Hosa6_S14YAAOhkkP0H2B7ANiYLVPaom"/>
+</div>
+<div class="flex-1 flex flex-col h-full justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[1rem]">location_on</span>
+                                        3.5 miles away
+                                    </span>
+<span class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[1rem]">calendar_today</span>
+                                        Expiry Tomorrow
+                                    </span>
+</div>
+<h4 class="text-lg font-bold text-on-surface leading-tight mb-1">Fresh Valley Market - Mixed Produce</h4>
+<p class="text-on-surface-variant text-sm">Slightly bruised apples, excess carrots, and leafy greens. Suitable for immediate processing or soups.</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint">scale</span>
+<span class="font-semibold text-on-surface">~45 lbs</span>
+</div>
+<button class="bg-surface-container-high text-primary hover:bg-primary-container/20 px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                                    Claim Supply
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar / Contextual Info (Right Column) -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Impact Summary Widget -->
+<div class="bg-primary text-on-primary rounded-lg p-6 shadow-lg relative overflow-hidden">
+<!-- Abstract texture/gradient background -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/40 to-transparent opacity-50"></div>
+<div class="relative z-10">
+<h3 class="text-label-md text-primary-fixed-dim mb-4">Your Impact This Month</h3>
+<div class="text-display-lg font-bold mb-1">1,240</div>
+<p class="text-on-primary-container font-medium mb-6">Meals Diverted</p>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-primary-fixed-dim">Goal: 2000</span>
+<span class="font-bold">62%</span>
+</div>
+<div class="w-full bg-primary-container/50 rounded-full h-2 overflow-hidden">
+<div class="bg-primary-fixed h-full rounded-full" style="width: 62%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pending Pickup Snippet (Teaser for Tab 3) -->
+<div class="bg-surface-container-lowest rounded-lg p-5 no-strict-border">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-title-md text-on-surface">Next Pickup</h3>
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 mb-4">
+<p class="font-semibold text-on-surface">Bakery Surplus - City Center</p>
+<p class="text-sm text-on-surface-variant mb-2">Today, 4:00 PM</p>
+<div class="w-full h-24 bg-surface-container-high rounded overflow-hidden relative group cursor-pointer">
+<!-- Placeholder for Map Thumbnail -->
+<img alt="Map Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="a stylized clean digital map view showing streets and a location pin in soft light colors" data-location="City Center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiaSZttXMmw_FQtSEj5tYwOZYP_dpfG6ZhEJGKpGp01c93_WHoxXvuymz654We5kR54c5fKD98KH-gzI9-cq0b1eMxwWQdbjBlWxkiJ4ioADgdvS8rugpo_5qdTWl-RyVK7CnrusnaINcp7R209gD46Lc2z_7Vws6AzfHam54sE7cnlmN59QNi9iO3cSZYItGiaGt7em-5CNGWmfHYfxC8aaubESUSiJGJYQt5mek4LMy6vYHQGXf6DtwCOF9fwmO4Pm6amIx8c4yp"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary bg-white/90 p-1.5 rounded-full shadow-sm">my_location</span>
+</div>
+</div>
+</div>
+<button class="w-full text-center py-2 text-primary font-medium hover:bg-surface-container-high rounded-lg transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MealBridge - Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#3b0520",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#71314c",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "background": "#f8f9fa",
+                        "on-tertiary-container": "#ffaac8",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c2c9bb",
+                        "surface-tint": "#3b6934",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface-variant": "#42493e",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-fixed": "#002201",
+                        "secondary-fixed": "#ffddb8",
+                        "primary-fixed": "#bcf0ae",
+                        "on-secondary-container": "#684000",
+                        "surface-container": "#edeeef",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "tertiary-fixed-dim": "#ffb0cc",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a1d494",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#7c3a55",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "on-background": "#191c1d",
+                        "on-primary-fixed-variant": "#23501e",
+                        "primary-container": "#2d5a27",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary": "#60233e",
+                        "on-primary-container": "#9dd090",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#72796e",
+                        "secondary-container": "#fea619",
+                        "secondary": "#855300",
+                        "primary": "#154212",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffd9e4",
+                        "inverse-primary": "#a1d494"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex items-center justify-center p-4 md:p-8">
+<div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_32px_rgba(25,28,29,0.04)] ring-1 ring-outline-variant/15 min-h-[700px]">
+<!-- Left Image Section (Hidden on mobile) -->
+<div class="hidden md:flex w-1/2 relative bg-surface-container-low">
+<img alt="Growth and sustainability" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply" data-alt="lush green plant sapling growing out of rich dark soil in a sunlit field conveying growth and sustainability" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuN8Ubq79Kzc713lpqG6WakL71jRS_AM23sMeK8GMG8lJ1Rz0rFG6p3GEm0L8dvkUUMyhydqV1_XUakX1kBHYvT5tgU80NWl8v74MCSnw4e-LBKwnh2s66sch8u0O0ZRqcj1NFP1BQHW6UEHwmgZC6kB8WarTwNKugBRFK3fr-g7fjmCw3jy4bSRkjSk0g33L7dSlRFf9GInYGhLn4XV-U8kg4TiBEMyCP9E8jxTSla0tuyvudRHowXzbUCJxfO1acDoo_vgFEDbC0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12 text-on-primary">
+<h2 class="text-3xl font-headline font-bold mb-4 tracking-tight">Join the movement.</h2>
+<p class="text-lg font-body text-primary-fixed-dim leading-relaxed">Connect surplus food with communities in need. Every account created is a step towards zero waste.</p>
+</div>
+</div>
+<!-- Right Form Section -->
+<div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-surface-container-lowest">
+<div class="mb-10 text-center md:text-left">
+<h1 class="text-3xl font-headline font-bold text-on-surface mb-2 tracking-tight">Create Account</h1>
+<p class="text-on-surface-variant font-body">Sign up to start sharing or receiving resources.</p>
+</div>
+<form class="space-y-6">
+<!-- Role Selector -->
+<div aria-label="Role selection" class="bg-surface-container-low p-1.5 rounded-lg flex space-x-1 mb-8" role="group">
+<button class="flex-1 py-2.5 px-4 rounded-md bg-surface-container-lowest text-primary shadow-sm font-medium text-sm transition-all text-center" type="button">
+                        Food Donor
+                    </button>
+<button class="flex-1 py-2.5 px-4 rounded-md text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all text-center" type="button">
+                        NGO / Charity
+                    </button>
+</div>
+<!-- Organization Name -->
+<div>
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface-variant mb-2" for="orgName">Organization Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">domain</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-0 ring-1 ring-outline-variant/20 rounded-lg text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="orgName" name="orgName" placeholder="e.g. Community Food Bank" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div>
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface-variant mb-2" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-0 ring-1 ring-outline-variant/20 rounded-lg text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="email" name="email" placeholder="hello@organization.org" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface-variant mb-2" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">lock</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-0 ring-1 ring-outline-variant/20 rounded-lg text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-3.5 px-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-medium text-base hover:opacity-90 transition-opacity flex justify-center items-center gap-2 mt-8" type="submit">
+                    Create Account
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 text-center">
+<p class="text-on-surface-variant text-sm">
+                    Already have an account? 
+                    <a class="text-primary font-medium hover:underline underline-offset-4 ml-1" href="#">Back to Login</a>
+</p>
+</div>
+</div>
+</div>
+</body></html>
