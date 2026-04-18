@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-surface text-on-surface antialiased;
+  }
+}
+
+@layer utilities {
+  .icon-fill {
+    font-variation-settings: 'FILL' 1;
+  }
+}
